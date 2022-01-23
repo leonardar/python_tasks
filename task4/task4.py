@@ -1,10 +1,19 @@
 import statistics
+import sys
 
-a = [1, 10, 2, 9]
+file = sys.argv[1]
 
-median = statistics.median(a)
+def num_equalize(file):
+    nums_list = []
+    with open(file) as f:
+        nums = f.readlines()
+        for i in nums:
+            nums_list.append(int(i))
 
-print(int(sum(abs(v - median) for v in a)))
+    median = statistics.median(nums_list)
+    result =  (int(sum(abs(v - median) for v in nums_list)))
+    print(result)
+
 
 if __name__ == '__main__':
-    pass
+    num_equalize(file)
