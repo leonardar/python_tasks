@@ -1,17 +1,13 @@
 import sys
 
 
-def find_point_pos(xc, yc, r, points_coordinates):
-    for i in points_coordinates:
-        x, y = i.split()
-        x = float(x)
-        y = float(y)
-        if ((x - xc) * (x - xc) + (y - yc) * (y - yc)) < r * r:
-            print(1)
-        elif ((x - xc) * (x - xc) + (y - yc) * (y - yc)) == r * r:
-            print(0)
-        else:
-            print(2)
+def find_point_pos(xc, yc, r, x, y):
+    if ((x - xc) * (x - xc) + (y - yc) * (y - yc)) < r * r:
+        print(1)
+    elif ((x - xc) * (x - xc) + (y - yc) * (y - yc)) == r * r:
+        print(0)
+    else:
+        print(2)
 
 
 if __name__ == '__main__':
@@ -29,5 +25,8 @@ if __name__ == '__main__':
 
     with open(file2) as f:
         points_coordinates = f.readlines()
-
-    find_point_pos(xc, yc, r, points_coordinates)
+        for point in points_coordinates:
+            x, y = point.split()
+            x = float(x)
+            y = float(y)
+            find_point_pos(xc, yc, r, x, y)
