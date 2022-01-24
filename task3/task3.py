@@ -30,4 +30,4 @@ if __name__ == '__main__':
     print(json.dumps(tests_list, indent=4, ensure_ascii=False))
 
     with open('report.json', 'w') as f:
-        f.write(json.dumps(tests_list))
+        f.write(json.dumps(tests_list, indent=4, ensure_ascii=False))
